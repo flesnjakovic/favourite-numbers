@@ -85,7 +85,6 @@ func setFavouriteNumber(msg []string) {
 		log.Println(err)
 	}
 
-	// TODO: Close connections
 	_, err = setConn.Do("HSET", "users", msg[0], i)
 	if err != nil {
 		log.Println(err)
