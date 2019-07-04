@@ -8,3 +8,12 @@ This repository contains code for 'Favourite numbers' application. Every user (i
 The websocket has one type of response message:
 
 1. the alphabetical listing of all known users and their favourite number.
+
+There are 2 types of workers that can be used interchangeably. Go lang and python implementation. By default, `docker-compose.yml` uses go worker. If needed, python worker can be referenced in `docker-compose.yml` like:
+
+```yaml
+worker:
+  image: flesnjakovic/favourite-number-python-worker:stable
+```
+
+`docker-compose-dev.yml` file can be used for development and it builds docker images from worker and server folders.
