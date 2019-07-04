@@ -98,7 +98,7 @@ func receiveWork(redisConn redis.Conn, pubsub redis.PubSubConn) {
 		case redis.Message:
 			msg := strings.Split(string(v.Data), " ")
 
-			if msg[0] == "[list]" {
+			if msg[0] == "list" {
 				publishUsers(redisPool.Get())
 				continue
 			}

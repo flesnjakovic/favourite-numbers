@@ -72,6 +72,11 @@ func listener(wsConn *websocket.Conn, redisConn redis.Conn) {
 			continue
 		}
 
+		if msg[0] == "list" {
+			publishWork(redisConn, strings.Join(msg, " "))
+			continue
+		}
+
 		// Check if second parameter can be converted to integer
 		if len(msg) == 2 {
 			if _, err := strconv.Atoi(msg[1]); err != nil {
